@@ -395,7 +395,8 @@ class phpthumb_functions {
 					round($RealPixel['green'] * (1 - $overlaypct)) + ($OverlayPixel['green'] * $overlaypct),
 					round($RealPixel['blue']  * (1 - $overlaypct)) + ($OverlayPixel['blue']  * $overlaypct),
 					//$RealPixel['alpha']);
-					0);
+//					0);
+                    min(array($RealPixel['alpha'], floor($OverlayPixel['alpha'] * $opacipct))));
 
 				imagesetpixel($dst_im, $dst_x + $x, $dst_y + $y, $newcolor);
 			}
